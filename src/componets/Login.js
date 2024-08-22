@@ -5,7 +5,7 @@ import Loading from './Loading';
 export default function Login() {
   let navigate = useNavigate();
   let context = useContext(notecontext);
-  const{setauthToken , setIsLogin} = context;
+  const{setauthToken} = context;
   const[display ,setDisplay] = useState('none');
   const[user , setUSer] = useState({
     email:"",
@@ -28,7 +28,6 @@ export default function Login() {
     })
     let token = await data.json();
     if(token.success === true) {
-      setIsLogin(true);
       localStorage.setItem('token',token.user_token);
       navigate('/mynotes');
       setauthToken(localStorage.getItem('token'));

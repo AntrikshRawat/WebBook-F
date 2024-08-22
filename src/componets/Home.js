@@ -13,7 +13,7 @@ const Home = () => {
     description:""
   });
   const handleClick =async()=>{
-    if(isLogin === false) {
+    if(isLogin === 'false') {
       navigate('/signup');
       return false;
     }

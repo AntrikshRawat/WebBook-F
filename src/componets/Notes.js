@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import notecontext from '../context/notes/noteContext'
 import Noteitem from './Noteitem';
 import Loading from './Loading';
+import { Link } from 'react-router-dom';
 export default function Notes() {
   const[display ,setDisplay] = useState('none');
   const context = useContext(notecontext);
@@ -97,6 +98,9 @@ export default function Notes() {
               </div>
             )
           })}
+        </div>
+        <div className="container w-100 d-flex justify-content-center">
+        <Link to={"/"} className='btn btn-primary'>Create A New Note</Link>
         </div>
       </div>
     </>

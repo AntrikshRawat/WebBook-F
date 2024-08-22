@@ -6,7 +6,7 @@ export default function SignUp() {
   const[display , setDisplay] = useState('none');
   let navigate = useNavigate();
   const context = useContext(notecontext);
-  const {setauthToken ,setIsLogin} = context;
+  const {setauthToken} = context;
   const [user, setuser] = useState({
     name:"",
     email:"",
@@ -41,7 +41,6 @@ export default function SignUp() {
     if(token.success === true){
       localStorage.setItem('token',token.user_token);
       setauthToken(localStorage.getItem('token'));
-      setIsLogin(true);
       navigate('/');
       return;
     }else{
