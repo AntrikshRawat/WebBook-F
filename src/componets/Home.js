@@ -14,7 +14,7 @@ const Home = () => {
   });
   const handleClick =async()=>{
     if(isLogin === false) {
-      navigate('/login');
+      navigate('/signup');
       return false;
     }
     setDisplay('flex');
