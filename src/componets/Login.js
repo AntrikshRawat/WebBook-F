@@ -46,8 +46,8 @@ export default function Login() {
   return (
     <>
     <Loading display ={display}/>
-    <div className='container w-75 border-danger d-flex justify-content-center'>
-      <form onSubmit={loginForm} className='w-100 p-2 m-2'>
+    <div className='container w-100 border-danger d-flex justify-content-center'>
+      <form onSubmit={loginForm} className='w-75 p-2 m-2'>
         <h2 className='text-center m-2 text-decoration-underline'>LOGIN</h2>
   <div className="m-4">
     <label htmlFor="loginemail" className="form-label">Email</label>
