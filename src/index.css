@@ -1,0 +1,143 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body{
+  background-color: lightgray;
+}
+.navbar-brand{
+  color: green;
+  font-style:italic;
+  font-weight: bolder;
+  filter: brightness(1.5);
+}
+.navbar-brand:hover{
+  color: green;
+  filter: brightness(2);
+}
+.createnote{
+  width: 95%;
+}
+.noteitem {
+  position: relative;
+  width: 100%;
+  border: 1px solid black;
+}
+h1,h2 {
+  font-weight: 700;
+  font-style: italic;
+}
+.note{
+  position: relative;
+  height: auto;
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.noteheader{
+  position: relative;
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.noteheader>input{
+  position: relative;
+  height: 100%;
+  max-width: 50%;
+  min-width: 20%;
+  text-align: center;
+  font-size: 1.4rem;
+  background: transparent;
+  border: 2px solid lightcoral;
+  border-radius: 20px;
+}
+.description{
+  position: relative;
+  width: 100%;
+  height: 25rem;
+}
+.des , .title{
+  min-height: 5%;
+  overflow-wrap: break-word;
+}
+.description>textarea{
+  padding: 10px;
+  font-size: 1.2rem;
+  position: relative;
+  resize:none;
+  min-height: 100%;
+  background: transparent;
+  border: 1px solid black;
+}
+.note>button{
+  position: relative;
+  height: 3rem;
+  min-width: 20%;
+}
+.badge{
+  position: absolute;
+  right: -5px;
+  bottom: 90%;
+}
+/* From Uiverse.io by mrpumps31232 */
+.main{
+  position: absolute;
+  height: 150%;
+  width: 100%;
+  z-index:9999999999999;
+  background: transparent;
+  backdrop-filter: blur(4px);
+  filter: contrast(0.7);
+  display: none;
+} 
+.loading-wave {
+  position: sticky;
+  top: 50%;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.loading-bar {
+  width: 20px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: blue;
+  border-radius: 5px;
+  animation: loading-wave-animation 1s ease-in-out infinite;
+}
+
+.loading-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-wave-animation {
+  0% {
+    height: 10px;
+  }
+
+  50% {
+    height: 50px;
+  }
+
+  100% {
+    height: 10px;
+  }
+}
