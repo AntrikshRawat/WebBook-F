@@ -1,5 +1,5 @@
 import React, {useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import notecontext from '../context/notes/noteContext';
 import Loading from './Loading';
 export default function Login() {
@@ -58,7 +58,10 @@ export default function Login() {
     <input type="password" value={user.password} className="form-control" name='password' id="loginpassword" autoComplete='false' onChange={onChange}/>
   </div>
   <div className="m-4 d-flex justify-content-center">
-  <button type="submit" className="btn btn-primary w-50 text m-2">Login</button>
+    <div className="d-flex flex-wrap w-100 justify-content-center">
+    <button type="submit" className="btn btn-primary w-100 text m-2">Login</button>
+    <p className='text-center  w-100'>Don't have a Account?<Link to="/signup">Create a Account</Link></p>
+    </div>
   </div>
 </form>
     </div>
