@@ -13,7 +13,7 @@ const Home = () => {
     description:""
   });
   const handleClick =async()=>{
-    if(isLogin === '') {
+    if(isLogin === false) {
       alert("you need to login first!");
       return false;
     }
