@@ -13,7 +13,6 @@ import Notes from './componets/Notes';
 import Login from './componets/Login';
 import SignUp from './componets/SignUp';
 function App() {
-  localStorage.setItem('token', "");
   return (
     <>
     <NoteState>
