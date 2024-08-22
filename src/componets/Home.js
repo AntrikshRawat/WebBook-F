@@ -14,6 +14,7 @@ const Home = () => {
   });
   const handleClick =async()=>{
     if(isLogin === false) {
+      navigate('/login');
       alert("you need to login first!");
       return false;
     }
