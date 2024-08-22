@@ -6,17 +6,16 @@ const Home = () => {
   const[display ,setDisplay] = useState('none');
   const context = useContext(notecontext);
   let navigate = useNavigate();
-  const token = localStorage.getItem('token');
-  const { addnote} = context;
+  const {isLogin, addnote} = context;
   const[note , setNote] = useState({
     title:"",
     tag:"",
     description:""
   });
   const handleClick =async()=>{
-    if(token === '') {
+    if(isLogin === '') {
       alert("you need to login first!");
-      return;
+      return false;
     }
     setDisplay('flex');
     await addnote(note.title , note.tag , note.description);
