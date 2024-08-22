@@ -5,6 +5,7 @@ import notecontext from './noteContext'
 const URL = "https://webbook-b.vercel.app/api";
 let allNotes = [];
 const NoteState = (props) => {
+  localStorage.setItem('token', "");
   let token = localStorage.getItem('token');
 	const [notes, setNotes] = useState(allNotes);
   const[authToken ,setauthToken] = useState(localStorage.getItem('token'));
