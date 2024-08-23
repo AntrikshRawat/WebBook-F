@@ -9,7 +9,7 @@ export default function Home() {
           <div className="container mt-4 mb-3">
           <header>
             <h1>Capture Your Ideas, Anytime, Anywhere</h1>
-            <p>Your personal digital notebook, where productivity meets creativity. Jot down your thoughts, plan your projects, and stay organized effortlessly.</p>
+            <p>Your personal digital notebook, where productivity meets creativity. Note down your thoughts, plan your projects, and stay organized effortlessly.</p>
           </header>
           
           <main>

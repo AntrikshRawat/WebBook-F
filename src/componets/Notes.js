@@ -49,24 +49,24 @@ export default function Notes() {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">Update Note</h1>
+              <h1 className="modal-title fs-5 text-dark text-center w-100" id="exampleModalLabel">UPDATE NOTE</h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
               <div>
                 <div className="mb-3">
-                  <label htmlFor="Title" className="form-label">Title
+                  <label htmlFor="Title" className="form-label text-dark">Title
                   </label>
                   <input id='Title' value={note.title} onChange={onChange} type="text" className="form-control"
                     name='title' required/>
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="Tag" className="form-label">Tag</label>
+                  <label htmlFor="Tag" className="form-label text-dark">Tag</label>
                   <input value={note.tag} onChange={onChange} type="text" className="form-control"
                     name='tag' id="Tag" />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="Description" className="form-label">Description
+                  <label htmlFor="Description" className="form-label text-dark">Description
                   </label>
                   <input id='Description' value={note.description} onChange={onChange} type="text" className="form-control"
                     name='description' required minLength={10}/>
