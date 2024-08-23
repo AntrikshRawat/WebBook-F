@@ -7,11 +7,12 @@ import {
 import notecontext from '../context/notes/noteContext';
 const Navbar = () => {
   let context = useContext(notecontext);
-  const{authToken ,setauthToken} = context;
+  const{setauthToken ,isLogin ,setIsLogin} = context;
   let location = useLocation();
   const logOut = () =>{
     localStorage.setItem('token',"");
     setauthToken(localStorage.getItem('token'));
+    setIsLogin(false);
     window.location.replace('/login');
   }
   return (
@@ -26,20 +27,20 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className={`nav-link text-${location.pathname==="/"?"light":"secondary"}`} aria-current="page" to="/">Home</Link>
             </li>
-           {authToken !== "" && <li className="nav-item">
+           {isLogin === true && <li className="nav-item">
               <Link className={`nav-link text-${location.pathname==="/mynotes"?"light":"secondary"}`} aria-current="page" to="/mynotes">MyNotes</Link>
             </li>}
-           {authToken === "" && <li className="nav-item">
+           {isLogin === false && <li className="nav-item">
               <Link className={`nav-link text-${location.pathname==="/login"?"light":"secondary"}`} aria-current="page" to="/login">Login</Link>
             </li>}
-           {authToken === "" && <li className="nav-item">
+           {isLogin === false && <li className="nav-item">
               <Link className={`nav-link text-${location.pathname==="/signup"?"light":"secondary"}`} aria-current="page" to="/signup">Sign Up</Link>
             </li>}
             <li className="nav-item">
               <Link className={`nav-link text-${location.pathname==="/aboutus"?"light":"secondary"}`} aria-current="page" to="/aboutus">About Us</Link>
             </li>
           </ul>
-          {authToken !== "" && <button className='btn btn-outline-danger nav-item' onClick={logOut}>Log Out</button>}
+          {isLogin === true && <button className='btn btn-outline-danger nav-item' onClick={logOut}>Log Out</button>}
         </div>
       </div>
     </nav>

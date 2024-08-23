@@ -1,26 +1,29 @@
 import React, { useContext,useState } from 'react'
 import notecontext from '../context/notes/noteContext'
-import { useNavigate } from 'react-router-dom';
 import Loading from './Loading';
+import { useNavigate } from 'react-router-dom';
 const Home = () => {
+  let navigate = useNavigate();
   const[display ,setDisplay] = useState('none');
   const context = useContext(notecontext);
-  let navigate = useNavigate();
-  const {isLogin, addnote} = context;
+  const {addnote ,authToken ,isLogin,setIsLogin} = context;
+  if(authToken) {
+    setIsLogin(false);
+  }
   const[note , setNote] = useState({
     title:"",
     tag:"",
     description:""
   });
   const handleClick =async()=>{
-    if(isLogin === 'false') {
-      navigate('/signup');
-      return false;
+    if(isLogin === false) {
+      alert("Login First");
+      return;
     }
     setDisplay('flex');
     await addnote(note.title , note.tag , note.description);
     setDisplay('none');
-    navigate('/mynotes');
+    navigate("/mynotes");
   }
    const onChange=(e)=>{
     setNote({...note , [e.target.name]:e.target.value})

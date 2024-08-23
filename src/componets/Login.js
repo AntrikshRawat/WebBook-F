@@ -5,7 +5,7 @@ import Loading from './Loading';
 export default function Login() {
   let navigate = useNavigate();
   let context = useContext(notecontext);
-  const{setauthToken} = context;
+  const{setauthToken , setIsLogin} = context;
   const[display ,setDisplay] = useState('none');
   const[user , setUSer] = useState({
     email:"",
@@ -28,6 +28,7 @@ export default function Login() {
     })
     let token = await data.json();
     if(token.success === true) {
+      setIsLogin(true);
       localStorage.setItem('token',token.user_token);
       navigate('/mynotes');
       setauthToken(localStorage.getItem('token'));
@@ -59,7 +60,7 @@ export default function Login() {
   <div className="m-4 d-flex justify-content-center">
     <div className="d-flex flex-wrap w-100 justify-content-center">
     <button type="submit" className="btn btn-primary w-100 text m-2">Login</button>
-    <p className='text-center  w-100'>Don't have a Account?<Link to="/signup">Create a Account</Link></p>
+  <Link to="/signup">Create Your WebBook Account</Link>
     </div>
   </div>
 </form>

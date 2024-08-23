@@ -9,10 +9,13 @@ const NoteState = (props) => {
 	const [notes, setNotes] = useState(allNotes);
   const[authToken ,setauthToken] = useState(localStorage.getItem('token'));
   const[isLogin , setIsLogin] = useState(false);
+  if(token) {
+    setIsLogin(true);
+  }
 	//fetch all notes
 	const getAllNotes = async () => {
     try{
-      if(token !== "") {
+      if(isLogin === true) {
       const data = await fetch(`${URL}/notes/fetchallnotes`,{
         method:"GET",
         headers:{
@@ -25,11 +28,16 @@ const NoteState = (props) => {
     }
   }catch(error) {
     console.error(error);
+    alert("some error accured");
   }
 	}
 
 	//Add a note
 	const addnote = async (title , tag ,description) => {
+    if(isLogin === false) {
+      alert("Login First!");
+      return;
+    }
 		try{
       const dbnotes = await fetch(`${URL}/notes/addnote`, {
       method: "POST",
@@ -38,13 +46,17 @@ const NoteState = (props) => {
         "authtoken": `${token}`
       },
       body: JSON.stringify({title ,tag , description})
-    })
+    });
   }catch(error) {
     console.error(error);
   }
 	}
 	//delete a note
 	const deletenote = async (id) => {
+    if(isLogin === false) {
+      alert("Login Required");
+      return;
+    } 
  try{  
    const data = await fetch(`${URL}/notes/deletenote/${id}`, {
       method: "DELETE",
@@ -54,13 +66,16 @@ const NoteState = (props) => {
       },
     })
   }catch(error) {
-    console.error(error);
-    
+    console.error(error); 
   }
 	}
 
 	//edit a note
 	const editnote = async (id,title,tag ,description) => {
+    if(isLogin === false) {
+      alert("Login Required!");
+      return;
+    }
   try {
       const dbnotes = await fetch(`${URL}/notes/updatenote/${id}`, {
       method: "PUT",
@@ -72,7 +87,6 @@ const NoteState = (props) => {
     })
   }catch(error) {
     console.error(error);
-    
   }
 	}
 	return (

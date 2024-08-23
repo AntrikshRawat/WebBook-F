@@ -6,7 +6,7 @@ export default function SignUp() {
   const[display , setDisplay] = useState('none');
   let navigate = useNavigate();
   const context = useContext(notecontext);
-  const {setauthToken} = context;
+  const {setauthToken ,setIsLogin} = context;
   const [user, setuser] = useState({
     name:"",
     email:"",
@@ -41,6 +41,7 @@ export default function SignUp() {
     if(token.success === true){
       localStorage.setItem('token',token.user_token);
       setauthToken(localStorage.getItem('token'));
+      setIsLogin(true);
       navigate('/');
       return;
     }else{
@@ -74,8 +75,8 @@ export default function SignUp() {
           <input value={user.cpassword} type="password" name='cpassword' className="form-control" id='cpass' autoComplete='false'  onChange ={onchange} />
         </div>
         <div className="d-flex flex-wrap w-100 justify-content-center">
-    <button type="submit" className="btn btn-primary w-100 text m-2">Login</button>
-    <p className='text-center  w-100'>Already have an Account?<Link to="/login">Login</Link></p>
+    <button type="submit" className="btn btn-primary w-100 text m-2">Create Your WebBook Account</button>
+    <Link to="/login">Login To Your Account</Link>
     </div>
       </form>
     </div>
