@@ -6,7 +6,13 @@
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 body{
-  background-color: lightgray;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(40deg, #1e3c72, #2a5298, #6a5acd, #87cefa);
+  color: #fff;
+  min-height: 100vh;
+}
+a{
+  color: snow;
 }
 .navbar-brand{
   color: green;
@@ -25,6 +31,16 @@ body{
   position: relative;
   width: 100%;
   border: 1px solid black;
+}
+.noteitem>h3{
+  font-weight: 900;
+  text-shadow: 0px 0px 2px snow;
+}
+.noteitem>p{
+  color: lightgray;
+}
+input::placeholder,textarea::placeholder{
+  color: lightcyan;
 }
 h1,h2 {
   font-weight: 700;

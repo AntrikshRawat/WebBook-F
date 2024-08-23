@@ -42,7 +42,7 @@ export default function Notes() {
     setNote({ ...note, [e.target.name]: e.target.value })
   }
   return (
-    <>
+    <div className='p-2'>
     <Loading display = {display}/>
       <button ref={ref} type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" className='d-none'></button>
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -80,7 +80,7 @@ export default function Notes() {
           </div>
         </div>
       </div>
-      <div className='container'>
+      <div>
         <h2 className='text-center m-4'>Your Saved Notes</h2>
         <div className="row">
           {notes.length === 0 && <p className='text-center'>No Notes Available</p>}
@@ -99,10 +99,10 @@ export default function Notes() {
             )
           })}
         </div>
-        <div className="container w-100 d-flex justify-content-center">
-        <Link to={"/"} className='btn btn-primary'>Create A New Note</Link>
+        <div className=" w-100 d-flex justify-content-center">
+        <Link to={"/createnote"} className='btn btn-primary'>Create A New Note</Link>
         </div>
       </div>
-    </>
+    </div>
   )
 }

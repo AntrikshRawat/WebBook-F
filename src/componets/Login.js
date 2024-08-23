@@ -46,7 +46,7 @@ export default function Login() {
   return (
     <>
     <Loading display ={display}/>
-    <div className='container w-100 border-danger d-flex justify-content-center'>
+    <div className='container mt-4 mb-4 w-100 border-danger d-flex justify-content-center'>
       <form onSubmit={loginForm} className='w-75 p-2 m-2'>
         <h2 className='text-center m-2 text-decoration-underline'>LOGIN</h2>
   <div className="m-4">
@@ -60,7 +60,7 @@ export default function Login() {
   <div className="m-4 d-flex justify-content-center">
     <div className="d-flex flex-wrap w-100 justify-content-center">
     <button type="submit" className="btn btn-primary w-100 text m-2">Login</button>
-  <Link to="/signup">Create Your WebBook Account</Link>
+  <Link className='text-dark' to="/signup">Create Your WebBook Account</Link>
     </div>
   </div>
 </form>

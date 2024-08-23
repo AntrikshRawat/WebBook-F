@@ -9,13 +9,9 @@ const NoteState = (props) => {
 	const [notes, setNotes] = useState(allNotes);
   const[authToken ,setauthToken] = useState(localStorage.getItem('token'));
   const[isLogin , setIsLogin] = useState(false);
-  if(token) {
-    setIsLogin(true);
-  }
 	//fetch all notes
 	const getAllNotes = async () => {
     try{
-      if(isLogin === true) {
       const data = await fetch(`${URL}/notes/fetchallnotes`,{
         method:"GET",
         headers:{
@@ -25,7 +21,6 @@ const NoteState = (props) => {
       });
       let dbnotes = await data.json();
       setNotes(allNotes.concat(dbnotes.notes));
-    }
   }catch(error) {
     console.error(error);
     alert("some error accured");
@@ -58,7 +53,7 @@ const NoteState = (props) => {
       return;
     } 
  try{  
-   const data = await fetch(`${URL}/notes/deletenote/${id}`, {
+      await fetch(`${URL}/notes/deletenote/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

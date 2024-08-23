@@ -1,51 +1,22 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext } from 'react'
+import "../componets/Home.css"
+import { Link } from 'react-router-dom'
 import notecontext from '../context/notes/noteContext'
-import Loading from './Loading';
-import { useNavigate } from 'react-router-dom';
-const Home = () => {
-  let navigate = useNavigate();
-  const[display ,setDisplay] = useState('none');
-  const context = useContext(notecontext);
-  const {addnote ,authToken ,isLogin,setIsLogin} = context;
-  if(authToken) {
-    setIsLogin(false);
-  }
-  const[note , setNote] = useState({
-    title:"",
-    tag:"",
-    description:""
-  });
-  const handleClick =async()=>{
-    if(isLogin === false) {
-      alert("Login First");
-      return;
-    }
-    setDisplay('flex');
-    await addnote(note.title , note.tag , note.description);
-    setDisplay('none');
-    navigate("/mynotes");
-  }
-   const onChange=(e)=>{
-    setNote({...note , [e.target.name]:e.target.value})
-   }
+export default function Home() {
+          const context = useContext(notecontext);
+          const{isLogin} = context;
   return (
-    <>
-    <Loading display = {display}/>
-    <div className="container p-2 mb-3 createnote">
-      <h1 className='text-center p-2'>Create A Note...</h1>
-      <div className="note">
-        <div className="noteheader mb-2">
-        <input type="text" className='title m-1' placeholder='Add A Title' onChange={onChange} name='title'/>
-        <input type="text" className='tag m-1' placeholder='Add A Tag' onChange={onChange} name='tag' required/>
+          <div className="container mt-4 mb-3">
+          <header>
+            <h1>Capture Your Ideas, Anytime, Anywhere</h1>
+            <p>Your personal digital notebook, where productivity meets creativity. Jot down your thoughts, plan your projects, and stay organized effortlessly.</p>
+          </header>
+          
+          <main>
+            <h2>Be Creative, Stay Focused</h2>
+            <p>Start capturing your best ideas today and never lose track of what's important. Whether it's your next big project or a simple to-do list, we're here to help you stay on top of it all.</p>
+            <Link to={isLogin===true?"/mynotes":"/login"} className="get-started-btn">Get Started Now</Link>
+          </main>
         </div>
-        <div className="description mt-2">
-          <textarea name="description" placeholder='Write Your Note Here....' className='w-100 din' rows={10} onChange={onChange}></textarea>
-        </div>
-        <button disabled = {(note.description.length>=10&&note.title.length>0)?false:true} onClick={handleClick} className='btn btn-success m-4 mb-3'>Add Note</button>
-      </div>
-    </div>
-    </>
   )
 }
-
-export default Home

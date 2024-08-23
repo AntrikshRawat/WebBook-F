@@ -55,7 +55,7 @@ export default function SignUp() {
   return (
     <>
     <Loading display = {display}/>
-    <div className='container w-100 border-danger d-flex justify-content-center'>
+    <div className='container mt-3 mb-3 w-100 border-danger d-flex justify-content-center'>
       <form className='w-75 p-2 m-2' onSubmit={register}>
         <h2 className='text-center m-2 text-decoration-underline'>SIGN UP</h2>
         <div className="m-2">
@@ -76,7 +76,7 @@ export default function SignUp() {
         </div>
         <div className="d-flex flex-wrap w-100 justify-content-center">
     <button type="submit" className="btn btn-primary w-100 text m-2">Create Your WebBook Account</button>
-    <Link to="/login">Login To Your Account</Link>
+    <Link className='text-dark' to="/login">Login To Your Account</Link>
     </div>
       </form>
     </div>
