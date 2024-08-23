@@ -23,7 +23,6 @@ const NoteState = (props) => {
       setNotes(allNotes.concat(dbnotes.notes));
   }catch(error) {
     console.error(error);
-    alert("some error accured");
   }
 	}
 

@@ -42,7 +42,7 @@ export default function SignUp() {
       localStorage.setItem('token',token.user_token);
       setauthToken(localStorage.getItem('token'));
       setIsLogin(true);
-      navigate('/');
+      navigate('/createnote');
       return;
     }else{
       alert(token.msg);
