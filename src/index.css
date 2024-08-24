@@ -107,6 +107,8 @@ h1,h2 {
   position: absolute;
   height: 150%;
   width: 100%;
+  left: 0;
+  top: 0;
   z-index:9999999999999;
   background: transparent;
   backdrop-filter: blur(4px);

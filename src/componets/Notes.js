@@ -45,7 +45,7 @@ export default function Notes() {
     <div className='p-2'>
     <Loading display = {display}/>
       <button ref={ref} type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" className='d-none'></button>
-      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade mt-5" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
