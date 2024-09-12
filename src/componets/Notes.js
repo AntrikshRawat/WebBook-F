@@ -82,8 +82,8 @@ export default function Notes() {
       </div>
       <div>
         <h2 className='text-center m-4'>Your Saved Notes</h2>
+        {notes.length === 0 && <p className='text-center'>No Notes Available</p>}
         <div className="row">
-          {notes.length === 0 && <p className='text-center'>No Notes Available</p>}
           {notes.map((note) => {
             return (
               <div className="col-12 col-md-4" key={note._id}>

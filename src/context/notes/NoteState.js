@@ -83,10 +83,21 @@ const NoteState = (props) => {
     console.error(error);
   }
 	}
+  const getprofile = async()=>{
+    let data = await fetch(`${URL}/auth/getuser` ,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "authtoken": `${authToken}`
+      },
+    })
+    let user = await data.json();
+    return user.user;
+  }
 	return (
-		<notecontext.Provider value={{notes, setNotes, addnote, deletenote, editnote, getAllNotes,authToken,setauthToken ,isLogin ,setIsLogin}}>
+		<notecontext.Provider value={{notes, setNotes, addnote, deletenote, editnote, getAllNotes,authToken,setauthToken ,isLogin ,setIsLogin ,getprofile}}>
 			{props.children}
 		</notecontext.Provider>
 	)
 }
-export default NoteState
+export default NoteState;

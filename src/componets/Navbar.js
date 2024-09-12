@@ -7,16 +7,11 @@ import {
 import notecontext from '../context/notes/noteContext';
 const Navbar = () => {
   let context = useContext(notecontext);
-  const{authToken,setauthToken ,isLogin ,setIsLogin} = context;
+  const{authToken,isLogin ,setIsLogin} = context;
   if(authToken) {
     setIsLogin(true);
   }
   let location = useLocation();
-  const logOut = () =>{
-    localStorage.setItem('token',"");
-    setauthToken(localStorage.getItem('token'));
-    window.location.replace('/login');
-  }
   return (
     <nav className="navbar navbar-expand-lg bg-dark w-100">
       <div className="container-fluid">
@@ -45,7 +40,7 @@ const Navbar = () => {
               <Link className={`nav-link text-${location.pathname==="/aboutus"?"light":"secondary"}`} aria-current="page" to="/aboutus">About Us</Link>
             </li>
           </ul>
-          {isLogin === true && <button className='btn btn-outline-danger nav-item' onClick={logOut}>Log Out</button>}
+           {isLogin === true && <Link to="/profile"><i className="fa-solid fa-user mx-4"></i></Link>}
         </div>
       </div>
     </nav>

@@ -13,6 +13,7 @@ import Notes from './componets/Notes';
 import Login from './componets/Login';
 import SignUp from './componets/SignUp';
 import Home from './componets/Home';
+import Profile from './componets/Profile';
 function App() {
   return (
     <>
@@ -26,6 +27,7 @@ function App() {
       <Route exact path='/mynotes'Component={Notes}/>
       <Route exact path='/login'Component={Login}/>
       <Route exact path='/signup'Component={SignUp}/>
+      <Route exact path='/profile'Component={Profile}/>
     </Routes>
     </Router>
     </NoteState>
