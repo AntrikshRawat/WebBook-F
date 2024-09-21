@@ -29,17 +29,17 @@ export default function ResetPass() {
       <>
          <form className="container h-25 mt-5 w-75" onSubmit={submit}>
             <div className="pass w-100">
-               <h3 className='text-start text-dark font-monospace'>New Password:</h3>
-               <input className='num w-75' type="password" name="pass" minLength={8} maxLength={32} onChange={Change} autoComplete='true' required/>
+               <h3 className='text-start text-dark font-monospace mx-3'>New Password:</h3>
+               <input className='num w-75 px-1' type="password" name="pass" minLength={8} maxLength={32} onChange={Change} autoComplete='true' required/>
+            </div>
+            <div className="pass w-100 my-2">
+               <h3 className='text-start text-dark font-monospace mx-3'>Confirm Password:</h3>
+               <input onChange={Change} className='num w-75 px-1' type="password" name="confirmpass" minLength={8} maxLength={32} autoComplete='true' required/>
             </div>
             <div className="pass w-100">
-               <h3 className='text-start text-dark font-monospace'>Confirm Password:</h3>
-               <input onChange={Change} className='num w-75' type="password" name="confirmpass" minLength={8} maxLength={32} autoComplete='true' required/>
-            </div>
-            <div className="pass w-100">
-               <button disabled = {load} className='btn btn-success mt-4 w-75'>
+               <button disabled = {load} className='btn btn-success mt-4 w-50'>
                { load === true && <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>}
-               <span className='mx-2 font-monospace text-center' role="status">Reset Password</span>
+               <span className='mx-2 font-monospace text-center' role="status">Submit</span>
                </button>
             </div>
          </form>

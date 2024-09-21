@@ -43,7 +43,7 @@ export default function Profile() {
   return (
     <>
     <Loading display ={profile.display}/>
-    <div className='container h-25'>
+    <div className='container h-25 mt-5'>
           <h3 className='w-100 text-md-start m-2'>Name: {profile.name}</h3>
           <h3 className='w-100 text-md-start m-2'>Email: {profile.email}</h3>
           <button className="btn btn-secondary mx-2 mt-3" type="button" disabled ={load} onClick={handleClick}>

@@ -25,6 +25,11 @@
           overflow: scroll;
           margin-top: 1rem;
         }
+        @media(max-width:450px) {
+          h3,button{
+            font-size: 1rem;
+          }
+        }
         ::-webkit-scrollbar{
           display: none;
         }
