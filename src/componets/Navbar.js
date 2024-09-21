@@ -1,4 +1,4 @@
-import React, { useContext}  from 'react'
+import React, { useContext, useEffect}  from 'react'
 import "../index.css"
 import {
   Link,
@@ -8,10 +8,12 @@ import notecontext from '../context/notes/noteContext';
 const Navbar = () => {
   let context = useContext(notecontext);
   const{authToken,isLogin ,setIsLogin} = context;
-  if(authToken) {
-    setIsLogin(true);
-  }
   let location = useLocation();
+  useEffect(()=>{
+    if(authToken) {
+      setIsLogin(true);
+    }
+  })
   return (
     <nav className="navbar navbar-expand-lg bg-dark w-100">
       <div className="container-fluid">

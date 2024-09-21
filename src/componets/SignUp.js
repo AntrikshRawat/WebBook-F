@@ -3,10 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import notecontext from '../context/notes/noteContext';
 import Loading from './Loading';
 export default function SignUp() {
-  const[display , setDisplay] = useState('none');
   let navigate = useNavigate();
   const context = useContext(notecontext);
   const {setauthToken ,setIsLogin} = context;
+  const[display ,setDisplay] = useState('none');
   const [user, setuser] = useState({
     name:"",
     email:"",
@@ -27,8 +27,8 @@ export default function SignUp() {
       alert("password should be atleast 8 characters!");
       return false;
     }
-    setDisplay('flex');
     const URL = "https://webbook-b.vercel.app/api/auth/register";
+    setDisplay('flex');
     let data =  await fetch(URL ,{
       method: "POST",
       headers: {
@@ -37,7 +37,6 @@ export default function SignUp() {
       body:JSON.stringify({name:user.name,email:user.email,password:user.password})
     })
     let token = await data.json();
-    setDisplay('none');
     if(token.success === true){
       localStorage.setItem('token',token.user_token);
       setauthToken(localStorage.getItem('token'));

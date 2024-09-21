@@ -14,6 +14,8 @@ import Login from './componets/Login';
 import SignUp from './componets/SignUp';
 import Home from './componets/Home';
 import Profile from './componets/Profile';
+import Verification from './componets/OtpPage';
+import ResetPass from './componets/ResetPass';
 function App() {
   return (
     <>
@@ -28,6 +30,8 @@ function App() {
       <Route exact path='/login'Component={Login}/>
       <Route exact path='/signup'Component={SignUp}/>
       <Route exact path='/profile'Component={Profile}/>
+      <Route exact path='/otppage'Component={Verification}/>
+      <Route exact path='/reset'Component={ResetPass}/>
     </Routes>
     </Router>
     </NoteState>

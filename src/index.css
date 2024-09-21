@@ -24,12 +24,8 @@ a{
   color: green;
   filter: brightness(2);
 }
-.createnote{
-  width: 95%;
-}
 .noteitem {
   position: relative;
-  width: 100%;
   border: 1px solid black;
 }
 .noteitem>h3{
@@ -105,15 +101,14 @@ h1,h2 {
 /* From Uiverse.io by mrpumps31232 */
 .main{
   position: absolute;
-  height: 150%;
+  min-height: 100vh;
   width: 100%;
   left: 0;
   top: 0;
   z-index:9999999999999;
   background: transparent;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(15px);
   filter: contrast(0.7);
-  display: none;
 } 
 .loading-wave {
   position: sticky;

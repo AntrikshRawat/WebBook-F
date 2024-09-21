@@ -4,11 +4,13 @@ import Noteitem from './Noteitem';
 import Loading from './Loading';
 import { Link } from 'react-router-dom';
 export default function Notes() {
-  const[display ,setDisplay] = useState('none');
   const context = useContext(notecontext);
   const { notes, getAllNotes ,editnote ,deletenote} = context;
+  const[display,setDisplay] = useState('flex');
   useEffect(()=>{
-    getAllNotes();
+    getAllNotes().then(()=>{
+      setDisplay('none'); 
+    });
   });
   const ref = useRef(null);
   const refclose = useRef(null);
@@ -29,8 +31,9 @@ export default function Notes() {
   }
   const deleteone =async(id)=>{
     setDisplay('flex');
-    await deletenote(id);
-    setDisplay('none');
+    deletenote(id).then(()=>{
+      setDisplay('none');
+    });
 }
   const handleClick = async() => {
     setDisplay('flex');

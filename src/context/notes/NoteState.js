@@ -9,6 +9,7 @@ const NoteState = (props) => {
 	const [notes, setNotes] = useState(allNotes);
   const[authToken ,setauthToken] = useState(localStorage.getItem('token'));
   const[isLogin , setIsLogin] = useState(false);
+  const[Otp ,setOtp] = useState(0);
 	//fetch all notes
 	const getAllNotes = async () => {
     try{
@@ -94,8 +95,42 @@ const NoteState = (props) => {
     let user = await data.json();
     return user.user;
   }
+  const emailSend=async()=>{
+  try{ 
+     let data = await fetch(`${URL}/auth/verification` ,{
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "authtoken": `${authToken}`
+      },
+    })
+    let responce = await data.json();
+    if(responce.success === true) {
+      setOtp(responce.otp);
+     }
+    return responce.success;
+  }catch(error) {
+    return false;
+  }
+  }
+  const resetPassword =async(password)=>{
+    try {
+      let data = await fetch(`${URL}/auth/resetpassword` ,{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "authtoken": `${authToken}`
+        },
+        body:JSON.stringify({password})
+      })
+      let res = data.json();
+      return res;
+    } catch (error) {
+      return error;
+    }
+  }
 	return (
-		<notecontext.Provider value={{notes, setNotes, addnote, deletenote, editnote, getAllNotes,authToken,setauthToken ,isLogin ,setIsLogin ,getprofile}}>
+		<notecontext.Provider value={{notes, setNotes, addnote, deletenote, editnote, getAllNotes,authToken,setauthToken ,isLogin ,setIsLogin ,getprofile,emailSend,Otp,setOtp,resetPassword}}>
 			{props.children}
 		</notecontext.Provider>
 	)

@@ -1,38 +1,55 @@
 import React, { useContext, useEffect, useState} from 'react'
 import Loading from './Loading'
-import { Link } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 import notecontext from '../context/notes/noteContext'
 export default function Profile() {
-  const URL = "https://webbook-b.vercel.app/api/auth/getuser";
-  const[display ,setDisplay] = useState('flex');
+  let navigate = useNavigate();
+  const[load,setLoad] = useState(false);
   const[profile , setprofile] = useState({
     name:"",
-    email:""
+    email:"",
+    display:"flex"
   });
-  const{setauthToken,getprofile} = useContext(notecontext);
+  const{setauthToken,getprofile,emailSend} = useContext(notecontext);
   const logOut = async() =>{
     localStorage.setItem('token',"");
     setauthToken(localStorage.getItem('token'));
     window.location.replace('/login');
   }
+  const handleClick =async()=>{
+    setLoad(true);
+    let res = await emailSend();
+    setLoad(false);
+   if(res){    
+    alert('Otp sent to email');
+    navigate('/otppage');
+  }else{
+    alert('Error Loaging Page');
+  }
+  }
   useEffect(()=>{
-    const userprofile = async()=>{
-      let user = await getprofile();
+    try{ 
+        getprofile().then((res)=>{
       setprofile({
-        name:user.name,
-        email:user.email
+        name:res.name,
+        email:res.email,
+        display:"none"
       })
+    })}
+    catch(error) {
+      alert("Error Loading Page");
     }
-    userprofile();
-    setDisplay('none');
-  })
+    })
   return (
     <>
-    <Loading display ={display}/>
-    <div className='container my-5 d-flex flex-wrap'>
-          <h3 className='w-100 text-md-start m-2'>Name:  {profile.name}</h3>
-          <h3 className='w-100 text-md-start m-2'>Email:  {profile.email}</h3>
-          <Link to={Profile} className='btn btn-secondary mx-2 mt-3'>Reset Password</Link>
+    <Loading display ={profile.display}/>
+    <div className='container h-25'>
+          <h3 className='w-100 text-md-start m-2'>Name: {profile.name}</h3>
+          <h3 className='w-100 text-md-start m-2'>Email: {profile.email}</h3>
+          <button className="btn btn-secondary mx-2 mt-3" type="button" disabled ={load} onClick={handleClick}>
+{ load === true && <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>}
+          <span className='mx-2' role="status">Reset Password</span>
+          </button>
           <button onClick={logOut} className='btn btn-danger mx-2 mt-3'>Log Out</button>
     </div>
     </>

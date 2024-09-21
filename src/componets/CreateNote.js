@@ -2,6 +2,7 @@ import React, { useContext,useState } from 'react'
 import notecontext from '../context/notes/noteContext'
 import Loading from './Loading';
 import { useNavigate } from 'react-router-dom';
+import '../index.css'
 const Home = () => {
   let navigate = useNavigate();
   const[display ,setDisplay] = useState('none');
@@ -28,7 +29,7 @@ const Home = () => {
   return (
     <>
     <Loading display = {display}/>
-    <div className="container p-2 mb-3 mt-3 createnote">
+    <div className="container p-2 createnote">
       <h1 className='text-center p-2'>Create A Note...</h1>
       <div className="note">
         <div className="noteheader mb-2">

@@ -16,11 +16,18 @@
           backdrop-filter: blur(10px);
           -webkit-backdrop-filter: blur(10px);
           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-          max-width: 100%;
           width: 100%;
-          max-width: 600px; 
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          height: 85vh;
+          overflow: scroll;
+          margin-top: 1rem;
         }
-        
+        ::-webkit-scrollbar{
+          display: none;
+        }
         header h1 {
           font-size: 2.5rem;
           margin-bottom: 20px;
@@ -122,4 +129,13 @@
             padding: 10px 25px;
           }
         }
-        
+        .num{
+          position: relative;
+          background: transparent;
+          border: 1px solid black;
+          margin: 5px;
+          width: 40px;
+          height: 40px;
+          text-align: center;
+          font-size: 25px;
+        }
