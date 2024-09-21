@@ -37,7 +37,7 @@ export default function ResetPass() {
                <input onChange={Change} className='num w-75' type="password" name="confirmpass" minLength={8} maxLength={32} autoComplete='true' />
             </div>
             <div className="pass w-100">
-               <button className='btn btn-success mt-4 w-50'>
+               <button disabled = {load} className='btn btn-success mt-4 w-50'>
                { load === true && <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>}
                <span className='mx-2' role="status">Reset Password</span>
                </button>
