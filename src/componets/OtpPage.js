@@ -24,7 +24,7 @@ export default function ResetPass() {
     <form className="container h-25 mt-5 w-75" onSubmit={handleClick}>
       <h3 className='w-100 text-center mb-3'>Enter 6 Digit Otp:</h3>
       <div className="otp d-flex flex-wrap justify-content-center">
-      <input type="text" onChange={change} maxLength={6} className='num w-100 text-light' autoFocus/>
+      <input type="text" placeholder = "******" onChange={change} maxLength={6} className='num w-100 text-light' autoFocus/>
       <button disabled = {uotp>99999?false:true} className='btn btn-dark 
       w-50 mt-4 mw-auto'>Submit</button>
       </div>
