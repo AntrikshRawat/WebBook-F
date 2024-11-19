@@ -22,7 +22,7 @@ export default function Profile() {
     setLoad(false);
    if(res){    
     alert('Otp sent to email');
-    navigate('/otppage');
+    navigate('/resetpassword');
   }else{
     alert('Error Loaging Page');
   }
